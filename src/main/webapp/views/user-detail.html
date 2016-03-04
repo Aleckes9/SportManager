@@ -1,0 +1,151 @@
+<div class="container">
+	<div class="row">
+		<div class="col-lg-2 " >
+		</div><!-- col-lg-2   -->
+          
+		<div class="col-lg-10">
+			<br>
+			<form class="form-horizontal" style="text-align:left;" name="myForm" data-ng-model="user" role="form">
+				<legend>Modify user</legend>
+				<div class="form-group" id="dnd-container">
+					<img data-ng-src="{{userPicture}}" border="1">
+					<button type="button" class="btn btn-small" data-ng-click="gotoUserPicturePage(user)" style="float: right;">Update picture</button>
+					<button type="button" class="btn btn-small" data-ng-click="deleteUserPicture(user)" style="float: right;">Delete picture</button>
+				</div>
+				<hr>
+				<div class="form-group">
+					<label class="control-label col-sm-2" for="user.lastName">Last name</label>
+					<div class="col-sm-8">
+						<input onBlur required name="user_lastName" id="user_lastName" type="text" class="input form-control" placeholder="lastName" data-ng-model="user.lastName">
+					</div>
+				</div>
+				<div class="form-group">
+					<label class="control-label col-sm-2" for="user.firstName">First name</label>
+					<div class="col-sm-8">
+						<input onBlur required name="user_firstName" id="user_firstName" type="text" class="input form-control" placeholder="firstName" data-ng-model="user.firstName">
+					</div>
+				</div>
+				<div class="form-group">
+					<label class="control-label col-sm-2" for="user.mail">mail</label>
+					<div class="col-sm-6">
+						<input class="input form-control" id="user.mail" type="text" placeholder="mail" data-ng-model="user.mail">
+						
+					</div>
+					
+				</div>
+				<br>
+				<!--
+				<tabset>
+					<tab heading="Technologies">
+				<div class="row">				
+					<div class="col-lg-6">
+						<br>
+						Actuelle(s)
+						<table class="table">
+							<tbody>
+			              		<tr data-ng-repeat='technology in userInterestedInTechnologies.content' data-index='{{$index}}' data-ng-model='user.interested_in_technologies'>
+									<td>{{technology.name}}</td>
+									<td align="right">
+										<button type="button" class="btn btn-default btn-xs" data-ng-click="updateUserTechnology(technology, 'delete')">
+											<i title="Add the technology" class="icon-minus"></i>
+										</button>				
+									</td>
+              					</tr>
+							</tbody>
+						</table>          
+					</div>
+					<div class="col-lg-6">
+						<br>
+						Disponible(s)<br>
+						<table class="table">
+							<tbody>
+			              		<tr data-ng-repeat="technology in Technologies.content | FilterNotAlreadyUse:userInterestedInTechnologies.content" data-index='{{$index}}'>
+									<td>{{technology.name}}</td>
+									<td align="right">
+										<button type="button" class="btn btn-default btn-xs" data-ng-click="updateUserTechnology(technology, 'add')">
+											<i title="Add the technology" class="icon-plus"></i>
+										</button>				
+									</td>
+              					</tr>
+							</tbody>
+						</table>          
+					</div>
+				</div>
+					</tab>
+					<tab heading="Developed projects">
+						<div class="row">
+							<div class="col-lg-6">
+								<br>
+								Actuelle(s)
+								<table class="table">
+									<tbody>
+			    		          		<tr data-ng-repeat='DevelopedProject in userDevelopedProjects.content' data-index='{{$index}}' data-ng-model='userDevelopedProjects'>
+											<td>{{DevelopedProject.name}}</td>
+											<td align="right">
+												<button type="button" class="btn btn-default btn-xs" data-ng-click="updateUserDevelopedProject(DevelopedProject, 'delete')">
+													<i title="Remove the Developed Project" class="icon-minus"></i>
+												</button>				
+											</td>
+              							</tr>
+									</tbody>
+								</table>          
+							</div>
+							<div class="col-lg-6">
+								<br>					
+								Disponible(s)<br>
+								<table class="table">
+									<tbody>
+					              		<tr data-ng-repeat="project in DevelopedProjects.content | FilterNotAlreadyUse:userDevelopedProjects.content" data-index='{{$index}}'>
+											<td>{{project.name}}</td>
+											<td align="right">
+												<button type="button" class="btn btn-default btn-xs" data-ng-click="updateUserDevelopedProject(project, 'add')">
+													<i title="Add a Project" class="icon-plus"></i>
+												</button>				
+											</td>
+              							</tr>
+									</tbody>
+								</table>          
+							</div>
+						</div>
+					</tab>
+					<tab heading="Managed projects">
+						<div class="row">
+							<div class="col-lg-6" data-ng-model='userManagedProjects'>
+								Actuelle(s)
+								<table class="table">
+									<tbody>
+			              				<tr data-ng-repeat='ManagedProject in userManagedProjects.content' data-index='{{$index}}'>
+											<td>{{ManagedProject.name}}</td>
+											<td align="right">
+												<button type="button" class="btn btn-default btn-xs" data-ng-click="updateUserManagedProject(ManagedProject, 'delete')">
+													<i title="Remove the managed Project" class="icon-minus"></i>
+												</button>				
+											</td>
+        		      					</tr>
+									</tbody>
+								</table>          
+							</div>
+							<div class="col-lg-6">
+								<br>					
+								Disponible(s)<br>
+								<table class="table">
+									<tbody>
+			              				<tr data-ng-repeat="project in ManagedProjects.content | FilterNotAlreadyUse:userManagedProjects.content" data-index='{{$index}}'>
+											<td>{{project.name}}</td>
+											<td align="right">
+												<button type="button" class="btn btn-default btn-xs" data-ng-click="updateUserManagedProject(project, 'add')">
+													<i title="Add a Project" class="icon-plus"></i>
+												</button>				
+											</td>
+              							</tr>
+									</tbody>
+								</table>          
+							</div>
+						</div>
+					</tab>
+				</tabset>
+				-->
+			</form>
+		</div><!-- col-lg-10   -->
+	</div>
+</div> <!-- container   -->

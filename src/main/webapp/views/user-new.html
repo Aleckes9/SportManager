@@ -1,0 +1,43 @@
+<div class="container" data-ng-controller="UserNewController" data-ng-cloak>
+	<div class="row">
+		<div class="col-lg-2 " >
+		</div><!-- col-lg-2   -->
+          
+		<div class="col-lg-10">
+			<form class="form-horizontal" style="text-align:left;" name="myForm" data-ng-model="user" role="form">
+				<legend>New user</legend>
+				<div class="form-group">
+					<label class="control-label col-sm-2" for="user.lastName">Last name</label>
+					<div class="col-sm-8">
+						<input onBlur required name="user_lastName" id="user_lastName" type="text" class="input form-control" placeholder="lastName" data-ng-model="user.lastName">
+					</div>
+				</div>
+				<div class="form-group">
+					<label class="control-label col-sm-2" for="user.firstName">First name</label>
+					<div class="col-sm-8">
+						<input onBlur required name="user_firstName" id="user_firstName" type="text" class="input form-control" placeholder="firstName" data-ng-model="user.firstName">
+					</div>
+				</div>
+				<div class="form-group">
+					<label class="control-label col-sm-2" for="user.mail">mail</label>
+					<div class="col-sm-6">
+						<input class="input form-control" id="user.mail" type="text" placeholder="mail" data-ng-model="user.mail">
+						
+					</div>
+					
+				</div>
+
+
+				<hr>
+				<div class="form-group">
+					<div class="col-sm-offset-2 col-sm-10">
+						<!-- myForm.$valid <=> myForm.user_lastName.$valid && myForm.user_firstName.$valid -->
+						<button type="submit" class="btn btn-small" data-ng-click="submit(user)" disabled data-ng-hide="myForm.$valid">Save changes</button>
+						<button type="submit" class="btn btn-small" data-ng-click="submit(user)" active data-ng-show="myForm.user_lastName.$valid && myForm.user_firstName.$valid">Save changes</button>
+						<button type="button" class="btn btn-small" data-ng-click="gotoUserListPage()">Cancel</button>
+					</div>
+				</div>
+			</form>		
+		</div><!-- col-lg-10   -->
+	</div>
+</div> <!-- container   -->

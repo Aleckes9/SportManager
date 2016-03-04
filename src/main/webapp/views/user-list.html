@@ -1,0 +1,88 @@
+<div class="container">
+	<div class="row">
+		<div class="col-lg-2 " >
+			<ul class="nav nav-pills nav-stacked">
+  				<li data-ng-repeat="Option in menuOptions.uListOptionItems | FilterOptionsActionsDispo:users.links">
+  					<a data-ng-href="#/user/new" data-ng-click="gotoUserNewPage()">  					
+						<span class="heydings_icons">{{Option.heyding_icon}}</span>
+						<span>{{Option.name}}</span>
+					</a>
+  				</li>
+			</ul>
+		</div><!-- col-lg-2   -->
+          
+		<div class="col-lg-10 " >
+			<legend>Users List</legend>
+			<br>
+			<pagination data-ng-change="setPage()" data-ng-model="selectedPage" max-size="maxSize" num-pages="nbOfPages" total-items="totalItems" class="pagination-small" boundary-links="true" rotate="false"></pagination>
+			<div class="table-responsive">
+			<table class="table table-hover">
+				<thead>
+					<tr>
+						<th></th>
+						<th>Name</th>
+						<th></th>
+					</tr>
+				</thead>
+				<tfoot>
+					<tr>
+						<td colspan="3">&nbsp;										
+						</td>
+					</tr>
+				</tfoot>
+				<tbody>
+              		<tr data-ng-repeat="user in users.content|filter:search|orderBy:predicate:reverse">
+						<td width="10%">
+							<a data-ng-href="#/user/{{user.tech_id}}" data-ng-repeat="link in user.links | isAPicture:'picture'">
+								<img data-ng-src="{{link.href}}" style="max-height: 50px;max-width: 50px;">
+							</a>
+						</td>
+						<td width="80%">
+         					<h3>{{user.lastName}} <small>{{user.firstName}}<a title="Detail user" href="" data-ng-click="getGetUserDetail(user)"><span class="pull-right glyphicon " data-ng-class="{'glyphicon-chevron-down': !user.close, 'glyphicon-chevron-right': user.close}"></span></a> </small></h3>
+         					<br>         					
+         					<div collapse="user.close">
+	         					<hr>         					
+								<div class="well well-lg">
+									<table class="table table-hover">
+										<thead>
+											<tr>
+												<th><h5>MANAGED PROJECTS</h5></th>
+												<th><h5>DEVELOPED PROJECTS</h5></th>
+												<th><h5>TECHNOLOGIES</h5></th>
+											</tr>
+										</thead>
+										<tbody>
+              								<tr>
+												<td>
+    	            								<ul class="list-unstyled">
+        	            								<li data-ng-repeat="projectM in user.userManagedProjects.content">{{projectM.name}}</li>
+            	        							</ul>
+                								</td>
+												<td>
+                    								<ul class="list-unstyled">
+	                    								<li data-ng-repeat="projectD in user.userDevelopedProjects.content">{{projectD.name}}</li>
+	    	                						</ul>
+												</td>
+												<td>
+            	    	    						<ul class="list-unstyled">
+                	    								<li data-ng-repeat="technology in user.userInterestedInTechnologies.content">{{technology.name}}</li>
+                    								</ul>
+												</td>
+              								</tr>
+										</tbody>
+									</table>          
+								</div> 
+							</div>
+						</td>						
+						<td width="10%">
+							<a href="" title="Send mail"><span class="glyphicon glyphicon-envelope" ></span></a>
+							&nbsp;
+							<a href="" title="Remove user" data-ng-click="deleteUser(user)" data-ng-show="suppressionAutorisee(user.links)" ><span class="glyphicon glyphicon-remove" ></span></a>							
+						</td>
+              		</tr>
+				</tbody>
+			</table>          
+			</div>
+		</div><!-- col-lg-10   -->
+	</div>
+</div> <!-- container   -->

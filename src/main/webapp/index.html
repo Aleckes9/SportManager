@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html data-ng-app="ProjetSportManager" data-ng-controller="globalCtrl">
+    <head>
+        <meta http-equiv="content-type" content="text/html; charset=UTF-8"> 
+        <title>ProjetSportManager</title> 
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+        <!-- begin new charte -->
+       
+        <link href="css/font-awesome.css" rel="stylesheet">
+        <link href="js/libs/bootstrap-3.3.6/dist/css/bootstrap.css" rel="stylesheet">
+
+        <!-- end new charte -->
+
+        <script src="js/libs/jquery-1.9.1.js"></script>
+
+        <script src="js/libs/angular.js"></script>
+        <script src="js/libs/angular-route.js"></script>
+        <script src="js/libs/ui-bootstrap-tpls-1.2.2.js"></script>
+
+        <script src="js/sprotManagerApp/application.js"></script>
+
+        <script src="js/sprotManagerApp/services/services.js"></script>
+        <script src="js/sprotManagerApp/services/security.js"></script>
+
+        <script src="js/sprotManagerApp/controllers/global_controller.js"></script>
+        <script src="js/sprotManagerApp/controllers/user_controller.js"></script>
+
+        <script src="js/sprotManagerApp/filters/filters.js"></script>
+
+        <script src="js/sprotManagerApp/directives/directives.js"></script>
+
+        
+
+        <script src="js/libs/angular-resource.js"></script>
+
+        <!-- Surcharge car plus dans bootStrap 3.x de base -->		
+        <style type="text/css">
+            input:focus:required:invalid,
+            textarea:focus:required:invalid,
+            select:focus:required:invalid {
+                color: #b94a48;
+                border-color: #ee5f5b;
+            }
+
+            input:focus:required:invalid:focus,
+            textarea:focus:required:invalid:focus,
+            select:focus:required:invalid:focus {
+                border-color: #e9322d;
+                -webkit-box-shadow: 0 0 6px #f8b9b7;
+                -moz-box-shadow: 0 0 6px #f8b9b7;
+                box-shadow: 0 0 6px #f8b9b7;
+            }
+        </style>		
+        <!-- Surcharge car plus dans bootStrap de base -->		
+    </head>
+    <body>
+        <div id="responsive" responsive data-ng-model="responsive"></div>
+        <div class="container">
+            <header class="header-simone">
+                <div  class="col-lg-9">
+                    <a href="home.html"><img src="img/logo.jpg"></a>
+                    <h1>ProjetSportManager</h1>
+                </div>
+                <div class="col-lg-3">
+                    <div class="header-btn-simone">
+                        <button type="button" class="btn btn-xs btn-default" data-ng-click="setLanguage('en-EN')">En</button>
+                        <button type="button" class="btn btn-xs btn-default" data-ng-click="setLanguage('fr-FR')" >Fr</button>
+                        <button type="button" class="btn btn-xs btn-primary">Logout</button>
+                    </div>
+                    <div class="input-group form-search hidden-xs">
+                        <input type="text" class="form-control" placeholder="Search" data-ng-model="search" id="pull_4">
+                        <span class="input-group-btn">
+                            <button class="btn btn-default " type="button"><span class="icon-search color_blue"></span></button>
+                        </span>
+                    </div><!-- /input-group -->
+                </div>
+            </header>
+        </div>
+
+
+        <!-- master nav   -->
+        <nav class="navbar navbar-default ng-scope" role="navigation" data-ng-init="navCollapsed = true">
+            
+                <div class="navbar-header">
+                    <button type="button" ng-click="navCollapsed = !navCollapsed" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                        <span class="sr-only">Toggle navigation</span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                    <a href="#/home" class="navbar-brand" data-ng-href="#/home">ProjetSportManager</a>
+                </div>
+                <div style="height: 0px;" collapse="navCollapsed" class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                    <ul class="nav navbar-nav">
+                        <li id="USERS">
+                            <a href="#/user/list" data-ng-href="#/user/list">USERS</a>
+                        </li>
+                    </ul>
+                </div>
+            
+        </nav>
+
+
+
+        <div data-ng-view></div>
+    </body>
+</html>
